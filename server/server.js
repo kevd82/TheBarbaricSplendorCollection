@@ -13,7 +13,7 @@ app.use(cors({
 }))
 
 
-// require("./config/mongoose.config")
+require("./config/mongoose.config")
 
 // require("./routes/conversion.routes")(app)
 // require("./routes/miniature.routes")(app)
