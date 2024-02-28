@@ -29,4 +29,17 @@ module.exports = {
         })
     },
 
+    findOneConversion: (req, res)=>{
+        Conversion.findOne({_id: req.params.id})
+        .then((oneConversion)=>{
+            console.log(oneConversion);
+            res.json(oneConversion);
+        })
+        .catch((err)=>{
+            console.log("findOneConversion has failed.");
+            res.json({message: "Error in findOneConversion.", error: err})
+        })
+
+    },
+
 }

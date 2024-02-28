@@ -29,6 +29,14 @@ module.exports = {
         })
     },
 
+    findOneScenery: (req, res)=>{
+        Scenery.findOne({_id: req.params.id})
+        .then((oneScenery)=>{
+            console.log(oneScenery);
+            res.json({message: "Error in findOneScenery.", error: err})
+        })
+    },
+
 }
 
 
