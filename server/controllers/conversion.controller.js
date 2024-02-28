@@ -17,6 +17,16 @@ module.exports = {
             })
     },
 
-    
+    createNewConversion: (req, res)=>{
+        Conversion.create(req.body)
+        .then((newConversion)=>{
+            console.log(newConversion);
+            res.json(newConversion);
+        })
+        .catch((err)=>{
+            console.log("Error in createNewConversion.");
+            res.status(400).json(err)
+        })
+    },
 
 }
