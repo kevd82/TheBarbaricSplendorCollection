@@ -37,6 +37,18 @@ module.exports = {
         })
     },
 
+    deleteScenery: (req, res)=>{
+        Scenery.deleteOne({_id: req.params.id})
+        .then((deletedScenery)=>{
+            console.log(deletedScenery);
+            res.json(deletedScenery);
+        })
+        .catch((err)=>{
+            console.log("deleteScenery has failed.");
+            res.json({message: "Error in deleteScenery.", error: err});
+        })
+    },
+
 }
 
 

@@ -14,7 +14,7 @@ module.exports = {
             })
             .catch((err)=>{
                 console.log("findAllMiniatures has failed.");
-                res.json({message: "Error in findAllMiniatures", error: err})
+                res.json({message: "Error in findAllMiniatures", error: err});
             })
     },
 
@@ -26,7 +26,7 @@ module.exports = {
         })
         .catch((err)=>{
             console.log("Error in createNewMiniature.");
-            res.status(400).json(err)
+            res.status(400).json(err);
         })
     },
 
@@ -34,9 +34,20 @@ module.exports = {
         Miniature.findOne({_id: req.params.id})
         .then((oneMiniature)=>{
             console.log("findOneMiniature has failed.");
-            res.json({message: "Error in findOneMiniature", error: err})
+            res.json({message: "Error in findOneMiniature", error: err});
         })
     },
 
+    deleteMiniature: (req, res)=>{
+        Miniature.deleteOne({_id: req.params.id})
+        .then((deletedMiniature)=>{
+            console.log(deletedMiniature);
+            res.json(deletedMiniature);
+        })
+        .catch((err)=>{
+            console.log("deleteMiniature has failed.");
+            res.json({message: "Error in deleteMiniature.", error: err});
+        })
+    },
 
 }

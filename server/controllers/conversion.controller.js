@@ -42,4 +42,16 @@ module.exports = {
 
     },
 
+    deleteConversion: (req, res)=>{
+        Conversion.deleteOne({_id: req.params.id})
+        .then((deletedConversion)=>{
+            console.log(deletedConversion);
+            res.json(deletedConversion);
+        })
+        .catch((err)=>{
+            console.log("deleteConversion has failed.");
+            res.json({message: "Error in deleteConversion.", error: err});
+        })
+    },
+
 }
